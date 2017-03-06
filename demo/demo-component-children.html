@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title>
+	<meta charset="utf-8"> 
+	<script src="js/react.js"></script> 
+	<script src="js/react-dom.js"></script> 
+	<script src="js/babel.min.js"></script> 
+	</head> 
+	<body> 
+
+		<div id="contianer"></a>
+
+		<script type="text/babel"> 
+
+			var contianer = document.querySelector("#contianer");
+			
+			// 组件
+			var Name = React.createClass({
+				render : function(){
+					return (
+						<div>
+							<p>{this.props.name}, component!</p>
+							{this.props.children}
+						</div>
+					);
+				}
+			});
+
+			ReactDOM.render( 
+				<Name name="hsian.T">
+					<p>爱好 : 读书 ！嗯？</p>
+				</Name>, 
+				contianer 
+			);
+
+		</script> 
+	</body> 
+</html>

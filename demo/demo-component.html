@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title> 
+	<script src="js/react.js"></script> 
+	<script src="js/react-dom.js"></script> 
+	<script src="js/babel.min.js"></script> 
+	</head> 
+	<body> 
+
+		<div id="contianer"></a>
+
+		<script type="text/babel"> 
+
+			var contianer = document.querySelector("#contianer");
+			
+			// 组件
+			var Name = React.createClass({
+				render : function(){
+					return (
+						<p>react component!</p>
+					);
+				}
+			});
+
+			ReactDOM.render( 
+				<Name/>, 
+				contianer 
+			);
+
+		</script> 
+	</body> 
+</html>
