@@ -6,6 +6,11 @@
 	<script src="../js/react.js"></script> 
 	<script src="../js/react-dom.js"></script> 
 	<script src="../js/babel.min.js"></script> 
+	<style>
+		body{
+			background:#f7f7f7;
+		}
+	</style>
 	</head> 
 	<body> 
 
@@ -17,9 +22,19 @@
 			
 			// 组件
 			var Name = React.createClass({
+
 				render : function(){
+
+					var textStyle = {
+						fontSize:50,
+						textAlign:"center",
+						lineHeight:"100px",
+						fontFamily:"Microsoft YaHei",
+						color: this.props.color
+					};
+
 					return (
-						<div>
+						<div style={textStyle}>
 							<p>{this.props.name}, component!</p>
 							{this.props.children}
 						</div>
@@ -27,9 +42,15 @@
 				}
 			});
 
+			var textP = {
+				fontSize: 30,
+				lineHeight: 1,
+				color:"#ccc"
+			}
+
 			ReactDOM.render( 
-				<Name name="hsian.T">
-					<p>爱好 : 读书 ！嗯？</p>
+				<Name name="hsian.T" color="blue">
+					<p style={textP}>爱好 : 读书 ！嗯？</p>
 				</Name>, 
 				contianer 
 			);

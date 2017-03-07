@@ -6,6 +6,25 @@
 	<script src="../js/react.js"></script> 
 	<script src="../js/react-dom.js"></script> 
 	<script src="../js/babel.min.js"></script> 
+	<style>
+		body{
+		background:#f7f7f7;
+		}
+
+		.text{
+			font-size:50px;
+			text-align:center;
+			line-height:100px;
+			font-family:"Microsoft YaHei";
+			color:#333;
+		}
+
+		.text-p {
+			font-size: 30px;
+			line-height: 1;
+			color:#ccc;
+		}
+	</style>
 	</head> 
 	<body> 
 
@@ -19,7 +38,7 @@
 			var Name = React.createClass({
 				render : function(){
 					return (
-						<div>
+						<div className="text">
 							<p>{this.props.name}, component!</p>
 							{this.props.children}
 						</div>
@@ -29,7 +48,7 @@
 
 			ReactDOM.render( 
 				<Name name="hsian.T">
-					<p>爱好 : 读书 ！嗯？</p>
+					<p className="text-p">爱好 : 读书 ！嗯？</p>
 				</Name>, 
 				contianer 
 			);

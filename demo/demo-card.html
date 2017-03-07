@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title>
+	<meta charset="utf-8"> 
+	<script src="../js/react.js"></script> 
+	<script src="../js/react-dom.js"></script> 
+	<script src="../js/babel.min.js"></script> 
+	<style>
+
+		*{
+			margin:0;
+			padding: 0;
+		}
+
+		#contianer{
+			width:414px;
+			margin:30px auto 0;
+			background: #f7f7f7;
+			height: 767px;
+			overflow-x: hidden;
+			padding:50px 10px;
+			box-sizing: border-box;
+		}
+
+		.clearfix:after{
+			display: block;
+			height:0;
+			content: "";
+			overflow: hidden;
+			clear:both;
+		}
+	</style>
+	</head> 
+	<body> 
+
+		<div id="contianer"></div>
+
+		<script type="text/babel"> 
+
+			var contianer = document.querySelector("#contianer");
+			
+			var Section = React.createClass({
+				render : function(){
+
+					var secCss = {
+						padding: "10px",
+						background:"#fff"
+					};
+
+					return (
+						<div style={secCss} className="clearfix">
+							<Picture image={this.props.image}/>
+							<Detail detail={this.props.detail}/>
+						</div>
+					);
+				}
+			});
+
+			var Picture = React.createClass({
+				render : function(){
+					
+					var imgCss = {
+						width: "30%",
+						float: "left",
+						display: "block",
+						marginRight: "15px",
+					};
+
+					return (
+						<img src={this.props.image} style={imgCss}/>
+					);
+				}
+			});
+
+			var Detail = React.createClass({
+				render : function(){
+					
+					var data = this.props.detail,
+						detailCss = {
+							lineHeight : 1.5
+						}, 
+						color = {
+							color: "orange"
+						};
+
+					return (
+						<div style={detailCss}>
+							<h4>{data.name}</h4>
+							<p>{data.en_name}</p>
+							<p style={color}>评分 : {data.score}</p>
+							<p>{data.type}</p>
+							<p>{data.city} / {data.duration}分钟</p>
+							<p>{data.date}上映</p>
+						</div>
+					);
+				}
+			});
+
+
+			var data = {
+				name : "一条狗的使命",
+				en_name : "A Dog's Purpose",
+				score : "9.3",
+				type : "剧情,喜剧",
+				city : "美国",
+				duration : "101",
+				date : "2017-03-03大陆"
+			};
+
+			ReactDOM.render( 
+				<Section image="img/pic_movie.jpg" detail={data}/>,
+				contianer 
+			);
+
+		</script> 
+	</body> 
+</html>
