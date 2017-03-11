@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title>
+	<meta charset="utf-8"> 
+	<script src="../js/react.js"></script> 
+	<script src="../js/react-dom.js"></script> 
+	<script src="../js/babel.min.js"></script> 
+	<style>
+
+		*{
+			margin:0;
+			padding: 0;
+		}
+		
+		html,body{
+			height:100%;
+			background:#f7f7f7;
+		}
+		
+		.wrap{
+			width:500px;
+			margin: 0 auto;
+			padding-top : 100px;
+		}
+
+		.input{
+			width:300px;
+			height:48px;
+			line-height : 48px;
+			outline : none;
+			padding-left: 10px;
+		}
+
+		.btn{
+			width:100px;
+			height:48px;
+			margin-left : 20px
+		}
+
+		.p {
+			margin-top:20px;
+		}
+		
+	</style>
+	</head> 
+	<body> 
+
+		<div id="contianer"></div>
+
+		<script type="text/babel"> 
+
+			var RecordName = React.createClass({
+
+				getInitialState : function(){
+					return {
+						name : ""
+					};
+				},
+				
+				componentDidMount : function(){
+					this.setState({
+						name : "请输入名字"
+					})
+				},
+
+				record : function(){
+					this.setState({
+						name : this.inputElement.value					
+					})
+				},
+
+				render : function(){
+
+					return (
+						<div className="wrap">
+							<input ref={(a) => this.inputElement = a} type="text" className="input"/>
+							<button className="btn" onClick={this.record}>确认</button>
+							<p className="p">{this.state.name}</p>
+						</div>
+					);
+				}
+
+			});
+			
+			ReactDOM.render(
+				<RecordName/>,
+				document.querySelector("#contianer")
+			);
+			
+
+		</script> 
+	</body> 
+</html>

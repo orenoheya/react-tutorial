@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title>
+	<meta charset="utf-8"> 
+	<script src="../js/react.js"></script> 
+	<script src="../js/react-dom.js"></script> 
+	<script src="../js/babel.min.js"></script> 
+	<script src="../js/ReactRouter.min.js"></script> 
+	<style>
+
+		*{
+			margin:0;
+			padding: 0;
+		}
+		
+		ul{
+			list-style: none;
+		}
+
+
+		
+	</style>
+	</head> 
+	<body> 
+
+		<div id="contianer"></div>
+		
+		<script type="text/babel"> 
+
+		var {Router,Route,IndexRoute,IndexLink,Link} = ReactRouter;
+
+		var App = React.createClass({
+			render : function(){
+				return (
+					<div>
+						<h2>span App</h2>
+						<ul>
+							<li><IndexLink to="/" activeClassName="active">home</IndexLink></li>
+							<li><Link to="/about" activeClassName="active">about me</Link></li>
+							<li><Link to="/contact" activeClassName="active">contact</Link></li>
+						</ul>
+						<div className="content">
+							{this.props.children}
+						</div>
+					</div>
+				);
+			}
+		});
+		
+		var Home = React.createClass({
+			render : function(){
+				return (
+					<div>
+						<h3>home page</h3>
+						<p>this is home page!</p>
+					</div>
+				);
+			}
+		});
+
+		var About = React.createClass({
+			render : function(){
+				return (
+					<div>
+						<h3>about me page</h3>
+						<p>this is about me page!</p>
+					</div>
+				);
+			}
+		});
+
+		var Contact = React.createClass({
+			render : function(){
+				return (
+					<div>
+						<h3>contact page</h3>
+						<p>this is contact page!</p>
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<Router>
+				<Route path="/" component={App}>
+					<IndexRoute component={Home}/>
+					<Route path="about" component={About}/>
+					<Route path="contact" component={Contact}/>
+				</Route>
+			</Router>,
+			document.querySelector('#contianer')
+		);
+
+	
+		</script> 
+	</body> 
+</html>

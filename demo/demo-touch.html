@@ -1,0 +1,160 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>React!</title>
+	<meta charset="utf-8"> 
+	<script src="../js/react.js"></script> 
+	<script src="../js/react-dom.js"></script> 
+	<script src="../js/babel.min.js"></script> 
+	
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+	<style>
+
+		*{
+			margin:0;
+			padding: 0;
+		}
+		
+		ul{
+			list-style: none;
+		}
+
+		html,body{
+			height:80%;
+			padding-top: 20px;
+			background:#f7f7f7;
+		}
+		
+		.wrap{
+			padding: 20px 0;
+			background: #fff;
+			overflow-x: hidden;
+			position: relative;
+			height:230px;
+		}
+
+		.wrap ul{
+			position: absolute;
+			left:0px;
+			width:750px;
+			height:230px;
+		}
+
+		.wrap li{
+			width:140px;
+			text-align: center;
+			float:left;
+			margin-left:10px;
+		}
+
+		.wrap li img{
+			display: block;
+			width:100%;
+		}
+		
+		
+	</style>
+	</head> 
+	<body> 
+
+		<div id="contianer"></div>
+		
+		<script type="text/babel"> 
+
+			var data = {
+				0 : {
+					name : "电影1",
+					img : "pic_m_1.webp"
+				},
+				1 : {
+					name : "电影2",
+					img : "pic_m_2.webp"
+				},
+				2 : {
+					name : "电影3",
+					img : "pic_m_3.webp"
+				},
+				3 : {
+					name : "电影4",
+					img : "pic_m_4.webp"
+				},
+				4 : {
+					name : "电影5",
+					img : "pic_m_5.webp"
+				}
+			};
+
+			var List = React.createClass({
+
+				render : function(){
+					return (
+						<div className="wrap">
+							<Items/>	
+						</div>
+					);
+				}
+			});
+
+			var Items = React.createClass({
+
+				start : function(e){
+
+					var self = this;
+					var curX = e.touches[0].pageX;
+					var width = window.innerWidth;
+					var tarX;
+					var left;
+					var disX;
+
+					this.list.addEventListener("touchmove",move);
+					this.list.addEventListener("touchend",end);
+
+					function move(e){
+
+						tarX = e.touches[0].pageX;
+						left = this.offsetLeft;						
+						disX = tarX - curX + left;		
+						
+						disX = left > 0 ?  0 : -left > 760 - width ? width - 760 : disX;
+						this.style.left = disX + "px";
+						curX = tarX;
+					}
+
+					function end(e){
+						this.removeEventListener("touchmove",self.start);
+						this.removeEventListener("touchmove",move);
+					}
+					
+				},
+
+				render : function(){
+
+					function createLi(item){
+						return <li><img src={ "img/" + item.img }/><span>{item.name}</span></li>
+					}
+
+					var listItems = [];
+
+					for(var item in data){
+
+						listItems.push(createLi(data[item]));
+					}
+
+					return (
+						<ul onTouchStart={this.start} ref={(e)=>{this.list = e}}>
+							{listItems}
+						</ul>
+					);
+				}
+			})
+			
+			ReactDOM.render(
+				<List/>,
+				document.querySelector("#contianer")
+			);
+			
+
+		</script> 
+	</body> 
+</html>
