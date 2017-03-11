@@ -14,7 +14,7 @@
 
 `index.html`引入`output`生成后的`js`文件,详细代码参考下面demo
 
-<a href="https://github.com/hsian/react-tutorial/blob/master/demo/demo-app">demo-app</a>
+<a href="https://github.com/hsian/react-tutorial/blob/master/demo/app">demo-app</a>
 
 安装需要的依赖模块：
 
