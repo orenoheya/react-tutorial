@@ -1,6 +1,6 @@
-#react系列教程2
+# react系列教程2
 
-###react设置样式
+### react设置样式
 
 **react设置样式有两种方式**
 

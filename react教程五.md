@@ -1,4 +1,4 @@
-#react中的事件
+# react中的事件
 
 <a href="https://github.com/hsian/react-tutorial/blob/master/demo/demo-touch.html">demo-touch</a>
 

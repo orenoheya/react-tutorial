@@ -1,4 +1,4 @@
-#react系列教程3
+# react系列教程3
 
 下面我们来写一个复杂的组件，先看demo
 
@@ -68,7 +68,7 @@
 
 `data`就是Section组件传递过来`this.props.detail`, 然后把对应的字段填充到节点. 详细源码查看上面demo
 
-###传递多个属性
+### 传递多个属性
 
 <a href="https://github.com/hsian/react-tutorial/blob/master/demo/demo-card2.html">demo-card2</a>
 

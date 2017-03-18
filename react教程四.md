@@ -1,16 +1,16 @@
-#react系列教程四
+# react系列教程四
 
 ### 组件中的状态
 
 目前我们的数据都是通过属性传递的，组件内的属性通常不会被修改，此时需要另一种存储数据的方式，组件中的状态
 
-###3个重要的API
+### 3个重要的API
 
 - componentDidMount : 组件渲染后调用该方法
 - getInitialState : 初始化`state`对象
 - this.setState : 该方法可以设置 `state`对象的值
 
-###举个栗子：
+### 举个栗子：
 
 <a href="https://github.com/hsian/react-tutorial/blob/master/demo/demo-state.html">demo-state</a>
 

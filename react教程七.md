@@ -1,8 +1,8 @@
-#使用Node 和 Webpack 来创建 React 
+# 使用Node 和 Webpack 来创建 React 
 
 在页面引入babel，由浏览器来解析jsx是一个非常耗费性能的方法，解析不说，光babel这玩意就1M多了，想想都夸张。这个时候就需要node出马了，我们可以在node端把jsx编译成js，再使用webpack打包成单个js文件引入到页面；
 
-###新建app目录
+### 新建app目录
 
 新建一个文件夹，执行`npm init`；初始化 `packge.json` 文件
 
@@ -18,7 +18,7 @@
 
 安装需要的依赖模块：
 
-###webpack
+### webpack
 
 `npm install webpack --save`
 
@@ -48,7 +48,7 @@ webpack配置文件 webpack.config.js
 
 这里就不逐行解析了，猜不出来啥意思的可以百度；
 
-###babel 
+### babel 
 
 `npm install babel-core babel-loader babel-preset-es2015 babel-preset-react --save`
 
@@ -63,7 +63,7 @@ webpack配置文件 webpack.config.js
 
 上面基本的框架搭完了，接下来添加文件：
 
-###编译
+### 编译
 
 os系统进入app根目录执行
 

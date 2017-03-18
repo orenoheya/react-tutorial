@@ -1,4 +1,4 @@
-#ReactRoute创建单页面应用（SPA）
+# ReactRoute创建单页面应用（SPA）
 
 好了，终于来到了我认为react最有价值的地方，单页面应用。
 
@@ -16,7 +16,7 @@ react是一个独立的模块 ，需要引入以下文件：
 
 `<script src="../js/ReactRouter.min.js"></script> `
 
-###创建路由
+### 创建路由
 
 所谓路由，使用起来就像自定义的组件一样：
 
@@ -57,7 +57,7 @@ ReactRouter.Router就认为是调用ReactRouter组件来注册一个路由吧，
 
 aboutme和contact分别指向各自的组件，IndexRoute表示根路径
 
-###添加导航链接
+### 添加导航链接
 
 组件是注册好了，但是页面的切换都是通过用户点击相对应链接来切换内容的，先看我们导航的代码：
 
@@ -69,7 +69,7 @@ aboutme和contact分别指向各自的组件，IndexRoute表示根路径
 
 这里添加链接并不是用dom的a标签，而是Link标签，是不是也很像我们的组件的调用，`activeClassName`表示当前页面对应的导航按钮`class`为`active`
 
-###添加对应视图
+### 添加对应视图
 
 此时点击li url地址栏确实改变了，但是内容并没有显示对应的内容，还需要添加以下这段：
 
